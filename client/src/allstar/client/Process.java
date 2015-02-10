@@ -20,7 +20,7 @@ public class Process implements Runnable {
         }
         String next = "";
         try {
-            while ((next = in.readLine()) != null) {
+            while ((next = in.readLine()) != null) { //wait for next line of input from server
                 System.out.println(next);
             }
         } catch (java.io.IOException ioe) {

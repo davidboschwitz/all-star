@@ -29,7 +29,9 @@ public class Main {
         String next = "";
         OutputStream out;
         try {
+            /** init client */
             client = new Client(new Socket(ip, port));
+            /** init the output stream to the server */
             out = client.socket.getOutputStream();
         } catch (java.net.UnknownHostException uhe) {
             uhe.printStackTrace();
