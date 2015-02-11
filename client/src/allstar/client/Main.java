@@ -16,15 +16,15 @@ public class Main {
      * The ip-address to attempt to connect to (Default
      * <code>davidboschwitz.student.iastate.edu</code>.
      */
-    static String ip = "davidboschwitz.student.iastate.edu";
+    public static String ip = "davidboschwitz.student.iastate.edu";
     /**
      * The port to attempt to connect to (Default <code>2727</code>).
      */
-    static int port = 2727;
+    public static int port = 2727;
     /**
      * The Client object that holds most of the data for the client.
      */
-    static Client client;
+    protected static Client client;
 
     /**
      * Runs the program//main thread
