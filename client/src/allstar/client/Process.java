@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * 
+ * Second thread
  * @author davidboschwitz
  */
 public class Process implements Runnable {
