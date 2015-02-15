@@ -9,6 +9,7 @@
 #import "ALL_STARDetailViewController.h"
 
 @interface ALL_STARDetailViewController ()
+@property (weak, nonatomic) NSMutableArray *states;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
@@ -40,11 +41,54 @@
     }
 }
 
+/*
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+}*/
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
+    self.states = [NSMutableArray arrayWithCapacity:1];
+    
+    NSString *thePath = [[NSBundle mainBundle] pathForResource:@"Servers" ofType:@"plist"];
+    NSArray *tempArray;
+    NSMutableArray *serversTemp;
+    if (thePath && (tempArray = [NSArray arrayWithContentsOfFile:thePath]) ) {
+        serversTemp = [NSMutableArray arrayWithCapacity:1];
+        for (NSDictionary *stateDict in tempArray) {
+            ALLSTAR_ServerListing *server = [[ALLSTAR_ServerListing alloc] init];
+            server.name = [stateDict objectForKey:@"Name"];
+            server.serverIP = [stateDict objectForKey:@"Server IP"];
+            server.port = [stateDict objectForKey:@"Port (Default 2727)"];
+            [serversTemp addObject:server];
+        }
+    } else  {
+        return;
+    }    // (1)
+    for (ALLSTAR_ServerListing *theState in serversTemp) {
+        NSInteger sect = [theCollation sectionForObject:theState collationStringSelector:@selector(name)];
+        theState.sectionNumber = sect;
+    }
+    // (2)
+    NSInteger highSection = [[theCollation sectionTitles] count];
+    NSMutableArray *sectionArrays = [NSMutableArray arrayWithCapacity:highSection];
+    for (int i = 0; i < highSection; i++) {
+        NSMutableArray *sectionArray = [NSMutableArray arrayWithCapacity:1];
+        [sectionArrays addObject:sectionArray];
+    }
+    // (3)
+    for (ALLSTAR_ServerListing *theState in serversTemp) {
+        [(NSMutableArray *)[sectionArrays objectAtIndex:theState.sectionNumber] addObject:theState];
+    }
+    // (4)
+    for (NSMutableArray *sectionArray in sectionArrays) {
+        NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray
+                                            collationStringSelector:@selector(name)];
+        [self.states addObject:sortedSection];
+    }
 }
 
 - (void)didReceiveMemoryWarning

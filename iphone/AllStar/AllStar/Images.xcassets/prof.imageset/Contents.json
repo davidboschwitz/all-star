@@ -1,0 +1,27 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 1,
+          "height" : 1
+        },
+        "capInsets" : {
+          "bottom" : 189,
+          "top" : 210,
+          "right" : 171,
+          "left" : 228
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "prof.png",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

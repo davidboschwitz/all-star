@@ -13,4 +13,14 @@
 @property (strong, nonatomic) id detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet NSString *serverAddress;
+@end
+
+
+@interface ALLSTAR_ServerListing : NSObject
+
+@property(nonatomic,copy) NSString *name;
+@property(nonatomic,copy) NSString *serverIP;
+@property(nonatomic,copy) NSString *port;
+@property NSInteger sectionNumber;
 @end
