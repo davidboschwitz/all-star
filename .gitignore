@@ -14,3 +14,4 @@ hs_err_pid*
 /client/dist/
 /client/build/
 /server/nbproject/private/
+/andriod/nbproject/private/
