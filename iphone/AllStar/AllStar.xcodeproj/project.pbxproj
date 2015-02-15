@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF8903ED1A914FA500A3140D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903EC1A914FA500A3140D /* Foundation.framework */; };
+		CF8903EF1A914FA500A3140D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903EE1A914FA500A3140D /* CoreGraphics.framework */; };
+		CF8903F11A914FA500A3140D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903F01A914FA500A3140D /* UIKit.framework */; };
+		CF8903F71A914FA500A3140D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF8903F51A914FA500A3140D /* InfoPlist.strings */; };
+		CF8903F91A914FA500A3140D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8903F81A914FA500A3140D /* main.m */; };
+		CF8903FD1A914FA500A3140D /* ALL_STARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8903FC1A914FA500A3140D /* ALL_STARAppDelegate.m */; };
+		CF8904001A914FA500A3140D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8903FE1A914FA500A3140D /* Main_iPhone.storyboard */; };
+		CF8904031A914FA500A3140D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8904011A914FA500A3140D /* Main_iPad.storyboard */; };
+		CF8904061A914FA500A3140D /* ALL_STARMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8904051A914FA500A3140D /* ALL_STARMasterViewController.m */; };
+		CF8904091A914FA500A3140D /* ALL_STARDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8904081A914FA500A3140D /* ALL_STARDetailViewController.m */; };
+		CF89040B1A914FA500A3140D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF89040A1A914FA500A3140D /* Images.xcassets */; };
+		CF8904121A914FA500A3140D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8904111A914FA500A3140D /* XCTest.framework */; };
+		CF8904131A914FA500A3140D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903EC1A914FA500A3140D /* Foundation.framework */; };
+		CF8904141A914FA500A3140D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903F01A914FA500A3140D /* UIKit.framework */; };
+		CF89041C1A914FA500A3140D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF89041A1A914FA500A3140D /* InfoPlist.strings */; };
+		CF89041E1A914FA500A3140D /* AllStarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF89041D1A914FA500A3140D /* AllStarTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF8904151A914FA500A3140D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF8903E11A914FA400A3140D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF8903E81A914FA500A3140D;
+			remoteInfo = AllStar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF8903E91A914FA500A3140D /* AllStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8903EC1A914FA500A3140D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CF8903EE1A914FA500A3140D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CF8903F01A914FA500A3140D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CF8903F41A914FA500A3140D /* AllStar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllStar-Info.plist"; sourceTree = "<group>"; };
+		CF8903F61A914FA500A3140D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF8903F81A914FA500A3140D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF8903FA1A914FA500A3140D /* AllStar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllStar-Prefix.pch"; sourceTree = "<group>"; };
+		CF8903FB1A914FA500A3140D /* ALL_STARAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALL_STARAppDelegate.h; sourceTree = "<group>"; };
+		CF8903FC1A914FA500A3140D /* ALL_STARAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALL_STARAppDelegate.m; sourceTree = "<group>"; };
+		CF8903FF1A914FA500A3140D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		CF8904021A914FA500A3140D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		CF8904041A914FA500A3140D /* ALL_STARMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALL_STARMasterViewController.h; sourceTree = "<group>"; };
+		CF8904051A914FA500A3140D /* ALL_STARMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALL_STARMasterViewController.m; sourceTree = "<group>"; };
+		CF8904071A914FA500A3140D /* ALL_STARDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALL_STARDetailViewController.h; sourceTree = "<group>"; };
+		CF8904081A914FA500A3140D /* ALL_STARDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALL_STARDetailViewController.m; sourceTree = "<group>"; };
+		CF89040A1A914FA500A3140D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF8904101A914FA500A3140D /* AllStarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllStarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8904111A914FA500A3140D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CF8904191A914FA500A3140D /* AllStarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllStarTests-Info.plist"; sourceTree = "<group>"; };
+		CF89041B1A914FA500A3140D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF89041D1A914FA500A3140D /* AllStarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllStarTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF8903E61A914FA500A3140D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF8903EF1A914FA500A3140D /* CoreGraphics.framework in Frameworks */,
+				CF8903F11A914FA500A3140D /* UIKit.framework in Frameworks */,
+				CF8903ED1A914FA500A3140D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF89040D1A914FA500A3140D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF8904121A914FA500A3140D /* XCTest.framework in Frameworks */,
+				CF8904141A914FA500A3140D /* UIKit.framework in Frameworks */,
+				CF8904131A914FA500A3140D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF8903E01A914FA400A3140D = {
+			isa = PBXGroup;
+			children = (
+				CF8903F21A914FA500A3140D /* AllStar */,
+				CF8904171A914FA500A3140D /* AllStarTests */,
+				CF8903EB1A914FA500A3140D /* Frameworks */,
+				CF8903EA1A914FA500A3140D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF8903EA1A914FA500A3140D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF8903E91A914FA500A3140D /* AllStar.app */,
+				CF8904101A914FA500A3140D /* AllStarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF8903EB1A914FA500A3140D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF8903EC1A914FA500A3140D /* Foundation.framework */,
+				CF8903EE1A914FA500A3140D /* CoreGraphics.framework */,
+				CF8903F01A914FA500A3140D /* UIKit.framework */,
+				CF8904111A914FA500A3140D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF8903F21A914FA500A3140D /* AllStar */ = {
+			isa = PBXGroup;
+			children = (
+				CF8903FB1A914FA500A3140D /* ALL_STARAppDelegate.h */,
+				CF8903FC1A914FA500A3140D /* ALL_STARAppDelegate.m */,
+				CF8903FE1A914FA500A3140D /* Main_iPhone.storyboard */,
+				CF8904011A914FA500A3140D /* Main_iPad.storyboard */,
+				CF8904041A914FA500A3140D /* ALL_STARMasterViewController.h */,
+				CF8904051A914FA500A3140D /* ALL_STARMasterViewController.m */,
+				CF8904071A914FA500A3140D /* ALL_STARDetailViewController.h */,
+				CF8904081A914FA500A3140D /* ALL_STARDetailViewController.m */,
+				CF89040A1A914FA500A3140D /* Images.xcassets */,
+				CF8903F31A914FA500A3140D /* Supporting Files */,
+			);
+			path = AllStar;
+			sourceTree = "<group>";
+		};
+		CF8903F31A914FA500A3140D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF8903F41A914FA500A3140D /* AllStar-Info.plist */,
+				CF8903F51A914FA500A3140D /* InfoPlist.strings */,
+				CF8903F81A914FA500A3140D /* main.m */,
+				CF8903FA1A914FA500A3140D /* AllStar-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF8904171A914FA500A3140D /* AllStarTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF89041D1A914FA500A3140D /* AllStarTests.m */,
+				CF8904181A914FA500A3140D /* Supporting Files */,
+			);
+			path = AllStarTests;
+			sourceTree = "<group>";
+		};
+		CF8904181A914FA500A3140D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF8904191A914FA500A3140D /* AllStarTests-Info.plist */,
+				CF89041A1A914FA500A3140D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF8903E81A914FA500A3140D /* AllStar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF8904211A914FA500A3140D /* Build configuration list for PBXNativeTarget "AllStar" */;
+			buildPhases = (
+				CF8903E51A914FA500A3140D /* Sources */,
+				CF8903E61A914FA500A3140D /* Frameworks */,
+				CF8903E71A914FA500A3140D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AllStar;
+			productName = AllStar;
+			productReference = CF8903E91A914FA500A3140D /* AllStar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF89040F1A914FA500A3140D /* AllStarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF8904241A914FA500A3140D /* Build configuration list for PBXNativeTarget "AllStarTests" */;
+			buildPhases = (
+				CF89040C1A914FA500A3140D /* Sources */,
+				CF89040D1A914FA500A3140D /* Frameworks */,
+				CF89040E1A914FA500A3140D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF8904161A914FA500A3140D /* PBXTargetDependency */,
+			);
+			name = AllStarTests;
+			productName = AllStarTests;
+			productReference = CF8904101A914FA500A3140D /* AllStarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF8903E11A914FA400A3140D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ALL_STAR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "CPR E 186 Dream Team All-Stars";
+				TargetAttributes = {
+					CF89040F1A914FA500A3140D = {
+						TestTargetID = CF8903E81A914FA500A3140D;
+					};
+				};
+			};
+			buildConfigurationList = CF8903E41A914FA400A3140D /* Build configuration list for PBXProject "AllStar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF8903E01A914FA400A3140D;
+			productRefGroup = CF8903EA1A914FA500A3140D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF8903E81A914FA500A3140D /* AllStar */,
+				CF89040F1A914FA500A3140D /* AllStarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF8903E71A914FA500A3140D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF8904031A914FA500A3140D /* Main_iPad.storyboard in Resources */,
+				CF89040B1A914FA500A3140D /* Images.xcassets in Resources */,
+				CF8904001A914FA500A3140D /* Main_iPhone.storyboard in Resources */,
+				CF8903F71A914FA500A3140D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF89040E1A914FA500A3140D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF89041C1A914FA500A3140D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF8903E51A914FA500A3140D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF8903FD1A914FA500A3140D /* ALL_STARAppDelegate.m in Sources */,
+				CF8904091A914FA500A3140D /* ALL_STARDetailViewController.m in Sources */,
+				CF8903F91A914FA500A3140D /* main.m in Sources */,
+				CF8904061A914FA500A3140D /* ALL_STARMasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF89040C1A914FA500A3140D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF89041E1A914FA500A3140D /* AllStarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF8904161A914FA500A3140D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF8903E81A914FA500A3140D /* AllStar */;
+			targetProxy = CF8904151A914FA500A3140D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF8903F51A914FA500A3140D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF8903F61A914FA500A3140D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF8903FE1A914FA500A3140D /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF8903FF1A914FA500A3140D /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		CF8904011A914FA500A3140D /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF8904021A914FA500A3140D /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		CF89041A1A914FA500A3140D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF89041B1A914FA500A3140D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF89041F1A914FA500A3140D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF8904201A914FA500A3140D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF8904221A914FA500A3140D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllStar/AllStar-Prefix.pch";
+				INFOPLIST_FILE = "AllStar/AllStar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CF8904231A914FA500A3140D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllStar/AllStar-Prefix.pch";
+				INFOPLIST_FILE = "AllStar/AllStar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CF8904251A914FA500A3140D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllStar.app/AllStar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllStar/AllStar-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AllStarTests/AllStarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CF8904261A914FA500A3140D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllStar.app/AllStar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllStar/AllStar-Prefix.pch";
+				INFOPLIST_FILE = "AllStarTests/AllStarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF8903E41A914FA400A3140D /* Build configuration list for PBXProject "AllStar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF89041F1A914FA500A3140D /* Debug */,
+				CF8904201A914FA500A3140D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF8904211A914FA500A3140D /* Build configuration list for PBXNativeTarget "AllStar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF8904221A914FA500A3140D /* Debug */,
+				CF8904231A914FA500A3140D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CF8904241A914FA500A3140D /* Build configuration list for PBXNativeTarget "AllStarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF8904251A914FA500A3140D /* Debug */,
+				CF8904261A914FA500A3140D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF8903E11A914FA400A3140D /* Project object */;
+}
