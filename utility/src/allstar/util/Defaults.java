@@ -17,5 +17,6 @@ public class Defaults {
     private Defaults(){
     }
     
+    public final static javax.sound.sampled.AudioFormat AudioFormat;
     
 }
