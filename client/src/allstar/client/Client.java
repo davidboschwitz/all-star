@@ -63,11 +63,20 @@ public class Client implements LineListener {
         line.start();
 
         // Here, stopped is a global boolean set by another thread.
-        while (!stopped) {
-            // Read the next chunk of data from the TargetDataLine.
-            numBytesRead = line.read(data, 0, data.length);
+        try {
+            System.out.println("Talk Start.");
+            while (!Main.stopped) {
+                // Read the next chunk of data from the TargetDataLine.
+                numBytesRead = line.read(data, 0, data.length);
             // Save this chunk of data.
-            out.write(data, 0, numBytesRead);
+
+                socket.getOutputStream().write(data, 0, numBytesRead);
+
+            }
+            System.out.println("Talk flush()");
+            socket.getOutputStream().flush();
+        } catch (java.io.IOException ioe) {
+            ioe.printStackTrace();
         }
 
     }
