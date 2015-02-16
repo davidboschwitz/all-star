@@ -6,10 +6,12 @@
 package allstar.util;
 
 /**
- *
+ * The class that holds defaults for the Client and Server projects.
  * @author davidboschwitz
  */
 public class Defaults {
+    
+    public final static javax.sound.sampled.AudioFormat AudioFormat = null;
     
     /** 
      * You should never create an instance of this class. It is for static resources only.
@@ -17,6 +19,5 @@ public class Defaults {
     private Defaults(){
     }
     
-    public final static javax.sound.sampled.AudioFormat AudioFormat;
     
 }
