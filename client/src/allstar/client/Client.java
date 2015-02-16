@@ -1,13 +1,13 @@
 package allstar.client;
 
+import allstar.util.Defaults;
 import java.net.Socket;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.TargetDataLine;
-import allstar.util.Defaults;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.Line;
