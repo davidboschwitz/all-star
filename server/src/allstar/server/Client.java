@@ -45,7 +45,7 @@ public class Client {
     }
 
     private void initialize() throws java.io.IOException {
-        out.write(("Connection Accepted - [" + SESSION_ID + "]\n").getBytes());
+        //out.write(("Connection Accepted - [" + SESSION_ID + "]\n").getBytes());
         //inStream.size = in.read(inStream.buffer);
         //inStream.currentPos = 0;
         //name = inStream.readString();

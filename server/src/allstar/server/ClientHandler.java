@@ -10,7 +10,7 @@ public class ClientHandler {
 
     public final int MAX_CLIENTS;
     private final Client[] clients;
-    private byte[] buffer = new byte[512];
+    private byte[] buffer = new byte[1024];
     private int currentLength = 0;
 
     ClientHandler(int MAX_CLIENTS) {
@@ -55,9 +55,9 @@ public class ClientHandler {
                 continue;
             }
             try {
-                s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
+                //s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
                 s.out.write(buffer, 0, currentLength);
-                s.out.write("\n".getBytes());
+                //s.out.write("\n".getBytes());
                 s.out.flush();
             } catch (java.net.SocketException se) {
                 disconnect(s);
