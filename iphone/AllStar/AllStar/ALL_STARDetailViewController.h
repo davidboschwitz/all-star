@@ -17,7 +17,7 @@
 @end
 
 
-@interface ALLSTAR_ServerListing : NSObject
+@interface State : NSObject
 
 @property(nonatomic,copy) NSString *name;
 @property(nonatomic,copy) NSString *serverIP;
