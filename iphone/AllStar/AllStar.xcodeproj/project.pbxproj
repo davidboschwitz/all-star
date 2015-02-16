@@ -23,6 +23,8 @@
 		CF8904141A914FA500A3140D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8903F01A914FA500A3140D /* UIKit.framework */; };
 		CF89041C1A914FA500A3140D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF89041A1A914FA500A3140D /* InfoPlist.strings */; };
 		CF89041E1A914FA500A3140D /* AllStarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF89041D1A914FA500A3140D /* AllStarTests.m */; };
+		CF89042A1A91661E00A3140D /* ALL_STARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8903FC1A914FA500A3140D /* ALL_STARAppDelegate.m */; };
+		CF89042B1A91662200A3140D /* ALL_STARDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8904081A914FA500A3140D /* ALL_STARDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF89042B1A91662200A3140D /* ALL_STARDetailViewController.m in Sources */,
+				CF89042A1A91661E00A3140D /* ALL_STARAppDelegate.m in Sources */,
 				CF89041E1A914FA500A3140D /* AllStarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
