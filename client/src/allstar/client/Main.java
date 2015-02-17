@@ -27,9 +27,8 @@ public class Main {
      */
     protected static Client client;
 
-    
     static boolean stopped = true;
-    
+
     /**
      * Runs the program//main thread
      *
@@ -39,7 +38,7 @@ public class Main {
         if (args.length > 0) {
             ip = args[0];
         }
-         OutputStream out;
+        OutputStream out;
         try {
             /* init client */
             client = new Client(new Socket(ip, port));
@@ -52,27 +51,31 @@ public class Main {
             ioe.printStackTrace();
             return;
         }
-        
+
         /* The reader for System.in */
         BufferedReader line = new BufferedReader(new InputStreamReader(System.in));
         /* The next line */
         String next = "";
-       
+
         /* Start the Process class */
         new Thread(new Process()).start();
         try {
             /* waits for the next line of input into the prompt */
             while ((next = line.readLine()) != null) {
                 //System.out.println("[sent]: "+next);
-                if(next.equals("start")){
-                    stopped = false;
-                    Main.client.audioOut();
+                if (Defaults.AudioEnabled) {
+                    if (next.equals("start")) {
+                        stopped = false;
+                        Main.client.audioOut();
+                    }
+                    if (next.equals("stop")) {
+                        stopped = true;
+                    }
                 }
-                if(next.equals("stop")){
-                    stopped = true;
+                if (Defaults.TextEnabled) {
+                    out.write(next.getBytes());
+                    out.flush();
                 }
-                //out.write(next.getBytes());
-                //out.flush();
             }
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
