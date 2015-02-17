@@ -1,5 +1,6 @@
 package allstar.client;
 
+import allstar.util.Defaults;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -16,11 +17,11 @@ public class Main {
      * The ip-address to attempt to connect to (Default
      * <code>davidboschwitz.student.iastate.edu</code>.
      */
-    public static String ip = "davidboschwitz.student.iastate.edu";
+    public static String ip = Defaults.ServerIP;
     /**
      * The port to attempt to connect to (Default <code>2727</code>).
      */
-    public static int port = 2727;
+    public static int port = Defaults.port;
     /**
      * The Client object that holds most of the data for the client.
      */
