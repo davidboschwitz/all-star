@@ -1,5 +1,6 @@
 package allstar.server;
 
+import allstar.util.Defaults;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -45,7 +46,9 @@ public class Client {
     }
 
     private void initialize() throws java.io.IOException {
-        //out.write(("Connection Accepted - [" + SESSION_ID + "]\n").getBytes());
+        if (Defaults.TextEnabled) {
+            out.write(("Connection Accepted - [" + SESSION_ID + "]\n").getBytes());
+        }
         //inStream.size = in.read(inStream.buffer);
         //inStream.currentPos = 0;
         //name = inStream.readString();
@@ -63,7 +66,8 @@ public class Client {
     }
 
     /**
-     * This method is run every time the server 'ticks' so general runtime tasks should be in this "process".
+     * This method is run every time the server 'ticks' so general runtime tasks
+     * should be in this "process".
      */
     public void process() {
         if (!socket.isConnected()) {

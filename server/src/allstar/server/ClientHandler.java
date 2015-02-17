@@ -1,5 +1,6 @@
 package allstar.server;
 
+import allstar.util.Defaults;
 import java.net.Socket;
 
 /**
@@ -33,8 +34,9 @@ public class ClientHandler {
     }
 
     void disconnect(Client c) {
-        if(c == null)
+        if (c == null) {
             return;
+        }
         println("Disconnecting " + c.SESSION_ID);
         c.disconnect();
         clients[c.SESSION_ID] = null;
@@ -55,9 +57,13 @@ public class ClientHandler {
                 continue;
             }
             try {
-                //s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
+                if (Defaults.TextEnabled) {
+                    s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
+                }
                 s.out.write(buffer, 0, currentLength);
-                //s.out.write("\n".getBytes());
+                if (Defaults.TextEnabled) {
+                    s.out.write("\n".getBytes());
+                }
                 s.out.flush();
             } catch (java.net.SocketException se) {
                 disconnect(s);
@@ -85,12 +91,12 @@ public class ClientHandler {
         }
     }
 
-    protected void disconnectAll(){
-        for(int i = 0; i < MAX_CLIENTS; i++){
+    protected void disconnectAll() {
+        for (int i = 0; i < MAX_CLIENTS; i++) {
             disconnect(clients[i]);
         }
     }
-    
+
     private void println(String s) {
         Server.out.println("[ClientHandler]: " + s);
     }
