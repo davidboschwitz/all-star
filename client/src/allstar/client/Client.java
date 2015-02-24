@@ -17,7 +17,7 @@ import javax.sound.sampled.LineListener;
 /**
  * Holds most of the data for the client and connecting to the server.
  *
- * @author davidboschwitz
+ * @author davidboschwitz and omar
  */
 public class Client implements LineListener {
 
@@ -48,7 +48,7 @@ public class Client implements LineListener {
             line = (TargetDataLine) AudioSystem.getLine(info);
             line.open(Defaults.AudioFormat);
         } catch (LineUnavailableException ex) {
-            // Handle the error ... 
+            // Handle the error ...
             ex.printStackTrace();
             return;
         }
