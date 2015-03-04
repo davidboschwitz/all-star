@@ -19,6 +19,7 @@ public class Server {
     public static ClientHandler clientHandler;
     public static Processing process;
     public static int port = 2727;
+    protected static String password = "all-star";
 
     /**
      * @param args the command line arguments
