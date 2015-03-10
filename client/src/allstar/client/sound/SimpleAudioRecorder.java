@@ -190,9 +190,7 @@ public class SimpleAudioRecorder
          is hardcoded here. We use PCM 44.1 kHz, 16 bit signed,
          stereo.
          */
-        AudioFormat audioFormat = new AudioFormat(
-                AudioFormat.Encoding.PCM_SIGNED,
-                44100.0F, 16, 2, 4, 44100.0F, false);
+        AudioFormat audioFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 44100.0F, 16, 2, 4, 44100.0F, false);
 
         /* Now, we are trying to get a TargetDataLine. The
          TargetDataLine is used later to read audio data from it.
@@ -220,10 +218,7 @@ public class SimpleAudioRecorder
          recording, reading audio data from the TargetDataLine
          and writing the data to a file.
          */
-        SimpleAudioRecorder recorder = new SimpleAudioRecorder(
-                targetDataLine,
-                targetType,
-                outputFile);
+        SimpleAudioRecorder recorder = new SimpleAudioRecorder(targetDataLine, targetType, outputFile);
 
         /* We are waiting for the user to press ENTER to
          start the recording. (You might find it
@@ -263,7 +258,7 @@ public class SimpleAudioRecorder
         System.exit(0);
     }
 
-    private static void out(String strMessage) {
-        System.out.println(strMessage);
+    private static void out(String s) {
+        System.out.println(s);
     }
 }
