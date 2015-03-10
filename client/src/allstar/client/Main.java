@@ -66,7 +66,7 @@ public class Main {
                 if (Defaults.AudioEnabled) {
                     if (next.equals("start")) {
                         stopped = false;
-                        Main.client.audioOut();
+                        Main.client.audio.audioOut();
                     }
                     if (next.equals("stop")) {
                         stopped = true;
