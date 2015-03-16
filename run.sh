@@ -4,4 +4,4 @@
 # Updated 3/10/2015
 
 cd client/dist
-java -cp All-Star_Client.jar:lib/All-Star_Utilities.jar allstar.client.Main
+java -cp All-Star_Client.jar:lib/All-Star_Utilities.jar allstar.client.Main $1
