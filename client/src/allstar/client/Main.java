@@ -87,7 +87,7 @@ public class Main {
         String next = "";
         /* Again for simplicity, we've hardcoded the audio file
          type, too. */
-        AudioFileFormat.Type targetType = AudioFileFormat.Type.WAVE;
+        
 
         /* Now, we are creating an SimpleAudioRecorder object. It
          contains the logic of starting and stopping the
@@ -95,7 +95,7 @@ public class Main {
          and writing the data to a file.
          */
         /* Start the Process class */
-        client.recorder = new AudioRecorder(targetDataLine, targetType, out);
+        client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
         new Thread(new Process()).start();
         try {
             /* waits for the next line of input into the prompt */
@@ -103,14 +103,15 @@ public class Main {
                 //System.out.println("[sent]: "+next);
                 if (Defaults.AudioEnabled) {
                     if (next.equals("start")) {
-                        client.recorder = new AudioRecorder(targetDataLine, targetType, out);
+                        client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
                         System.out.println("Started.");
                         stopped = false;
-                        Main.client.audio.audioOut();
+                        //Main.client.audio.audioOut();
                         client.recorder.start();
                     }
                     if (next.equals("stop")) {
                         System.out.println("Stopped.");
+                        client.recorder.stopRecording();
                         stopped = true;
                     }
                 }
