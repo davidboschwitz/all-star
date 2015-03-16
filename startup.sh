@@ -3,7 +3,7 @@
 # Made by David Boschwitz
 # Updated 3/10/2015
 
-echo "Starting all-star for RaspberryPi..\n”
+echo "Starting all-star for RaspberryPi...”
 
 sh update.sh
 
