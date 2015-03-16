@@ -27,12 +27,12 @@ public class Defaults {
     /**
      *
      */
-    public static final boolean TextEnabled = true;
+    public static final boolean TextEnabled = false;
 
     /**
      *
      */
-    public static final boolean AudioEnabled = false;
+    public static final boolean AudioEnabled = true;
 
     /**
      * You should never create an instance of this class. It is for static
