@@ -3,12 +3,12 @@
 # Made by David Boschwitz
 # Updated 3/10/2015
 
-echo "Starting all-star for RaspberryPi...”
+echo "Starting all-star for RaspberryPi..."
 
 sh update.sh
 
 cd client/dist
 
-java -jar All-Star_Client.jar
+java -cp All-Star_Client.jar:lib/All-Star_Utilties.jar allstar.client.Main
 
-echo “Run completed."
+echo "Run completed."
