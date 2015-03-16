@@ -1,7 +1,8 @@
 package allstar.client;
 
+import allstar.client.sound.AudioPlayer;
+import allstar.client.sound.AudioRecorder;
 import java.net.Socket;
-import javax.sound.sampled.Clip;
 
 /**
  * Holds most of the data for the client and connecting to the server.
@@ -18,7 +19,9 @@ public class Client {
      * Audio output clip?
      */
     protected AudioClient audio;
-
+    protected AudioPlayer player = new AudioPlayer();
+    protected AudioRecorder recorder;
+    
     public Client(Socket s) {
         this.socket = s;
     }

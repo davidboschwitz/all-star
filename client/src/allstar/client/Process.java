@@ -25,7 +25,7 @@ public class Process implements Runnable {
             try {
                 while (true) {
                     if (in.available() > 0) {
-                        Main.client.audio.audioIn(in);
+                        Main.client.player.play(in);
                     }
                 }
             } catch (java.io.IOException ioe) {
