@@ -50,7 +50,7 @@ public class AudioPlayer {
     
     private static final int EXTERNAL_BUFFER_SIZE = 128000;
     
-    void play(InputStream in){
+    public void play(InputStream in){
         
         /*
          We have to read in the sound file.
