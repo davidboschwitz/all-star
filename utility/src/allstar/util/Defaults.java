@@ -1,5 +1,6 @@
 package allstar.util;
 
+import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 
 /**
@@ -13,7 +14,11 @@ public class Defaults {
      * The Default AudioFormat to use for all audio (to be consistent).
      */
     public final static AudioFormat AudioFormat = new AudioFormat(16000.0F, 8, 2, true, true);
-
+    
+    /**
+     * The Default AudioFileFormat to use for all audio.
+     */
+    public final static AudioFileFormat.Type FileFormatType = AudioFileFormat.Type.WAVE;
     /**
      * The Default Server IP-Address to connect to.
      */
