@@ -18,7 +18,7 @@ public class Defaults {
     /**
      * The Default AudioFileFormat to use for all audio.
      */
-    public final static AudioFileFormat.Type FileFormatType = AudioFileFormat.Type.WAVE;
+    public final static AudioFileFormat.Type FileFormatType = AudioFileFormat.Type.AU;
     /**
      * The Default Server IP-Address to connect to.
      */
