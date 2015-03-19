@@ -33,7 +33,19 @@ public class Client {
      * Should we remove the client?
      */
     private boolean removeMe = false;
-
+    
+    /**
+     * Is the person transmitting/talking right meow?
+     */
+    public boolean isTalking = false;
+    
+    /**
+     * Initialize the Server-side Client object
+     *
+     * @param SESSION_ID
+     * @param sock
+     * @throws java.io.IOException
+     */
     public Client(int SESSION_ID, Socket sock) throws java.io.IOException {
         this.SESSION_ID = SESSION_ID;
         this.in = sock.getInputStream();
@@ -59,6 +71,8 @@ public class Client {
         try {
             in.close();
             out.flush();
+            socket.shutdownOutput();
+            socket.shutdownInput();
             socket.close();
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();

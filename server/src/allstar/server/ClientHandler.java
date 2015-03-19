@@ -37,12 +37,16 @@ public class ClientHandler {
         if (c == null) {
             return;
         }
+        if(c.isTalking){
+            return;
+        }
         println("Disconnecting " + c.SESSION_ID);
         c.disconnect();
         clients[c.SESSION_ID] = null;
     }
 
     void sendToAll(Client c) throws java.io.IOException {
+        c.isTalking = true;
         currentLength = c.in.available();
         c.in.read(buffer);
         for (int i = 0; i < MAX_CLIENTS; i++) {
@@ -66,9 +70,11 @@ public class ClientHandler {
                 }
                 s.out.flush();
             } catch (java.net.SocketException se) {
+                s.isTalking = false; //failsafe
                 disconnect(s);
             }
         }
+        c.isTalking = false;
 
     }
 
