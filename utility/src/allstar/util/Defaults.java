@@ -30,6 +30,10 @@ public class Defaults {
     public static final int port = 2727;
 
     /**
+     * The buffer size for audio.
+     */
+    public static final int EXTERNAL_BUFFER_SIZE = 128000;
+    /**
      *
      */
     public static final boolean TextEnabled = false;

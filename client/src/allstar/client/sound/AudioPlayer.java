@@ -5,6 +5,7 @@
  */
 package allstar.client.sound;
 
+import allstar.util.Defaults;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +50,6 @@ import javax.sound.sampled.SourceDataLine;
  */
 public class AudioPlayer {
     
-    private static final int EXTERNAL_BUFFER_SIZE = 128000;
     
     public void play(InputStream in){
         
@@ -139,7 +139,7 @@ public class AudioPlayer {
          AudioInputStream.
          */
         int nBytesRead = 0;
-        byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
+        byte[] abData = new byte[Defaults.EXTERNAL_BUFFER_SIZE];
         while (nBytesRead != -1) {
             try {
                 nBytesRead = audioInputStream.read(abData, 0, abData.length);

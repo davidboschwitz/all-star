@@ -11,7 +11,7 @@ public class ClientHandler {
 
     public final int MAX_CLIENTS;
     private final Client[] clients;
-    private byte[] buffer = new byte[1024];
+    private byte[] buffer = new byte[Defaults.EXTERNAL_BUFFER_SIZE];
     private int currentLength = 0;
 
     ClientHandler(int MAX_CLIENTS) {
