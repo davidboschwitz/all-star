@@ -5,6 +5,7 @@
  */
 package allstar.client.sound;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.sound.sampled.AudioFormat;
@@ -52,12 +53,13 @@ public class AudioPlayer {
     
     public void play(InputStream in){
         
+        BufferedInputStream bIN = new BufferedInputStream(in);
         /*
          We have to read in the sound file.
          */
         AudioInputStream audioInputStream = null;
         try {
-            audioInputStream = AudioSystem.getAudioInputStream(in);
+            audioInputStream = AudioSystem.getAudioInputStream(bIN);
         } catch (Exception e) {
             /*
              In case of an exception, we dump the exception
