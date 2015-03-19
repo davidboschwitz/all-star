@@ -47,8 +47,7 @@ public class ClientHandler {
 
     void sendToAll(Client c) throws java.io.IOException {
         c.isTalking = true;
-        currentLength = c.in.available();
-        c.in.read(buffer);
+        currentLength = c.in.read(buffer);
         for (int i = 0; i < MAX_CLIENTS; i++) {
             Client s = clients[i];
             if (s == null) {
