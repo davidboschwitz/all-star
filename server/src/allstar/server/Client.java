@@ -71,8 +71,8 @@ public class Client {
         try {
             in.close();
             out.flush();
-            socket.shutdownOutput();
-            socket.shutdownInput();
+//            socket.shutdownOutput();
+//            socket.shutdownInput();
             socket.close();
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
