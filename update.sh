@@ -6,17 +6,17 @@
 echo "Starting Update for RaspberryPi all-star client..."
 echo ""
 
-echo "[Git]"
+echo "$(tput smso)[Git]$(tput rmso)"
 git pull
 
 echo ""
-echo "[Build Utilities]"
+echo "$(tput smso)[Build Utilities]$(tput rmso)"
 
 cd utility
 ant jar
 
 echo ""
-echo "[Build Client]"
+echo "$(tput smso)[Build Client]$(tput rmso)"
 
 cd ..
 cd client
