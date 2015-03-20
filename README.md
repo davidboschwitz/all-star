@@ -9,7 +9,7 @@ This project will use:<br>
 -Java based server<br>
 -iPhone app (if time allows)<br>
 <br>
-by<br>
+by:<br>
 David Boschwitz<br>
 Ryan Wendell<br>
 Omar Taylor<br>
