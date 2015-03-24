@@ -122,6 +122,7 @@ public class Main {
             }
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
+            System.exit(1);
         }
     }
 
