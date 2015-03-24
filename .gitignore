@@ -19,3 +19,4 @@ hs_err_pid*
 /utility/build/
 /server/build/
 /utility/dist/
+/server/dist/
