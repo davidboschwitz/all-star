@@ -90,7 +90,7 @@ public class ClientHandler {
                 continue;
             }
             c.process();
-            if (c.remove()) {
+            if (!c.isTalking && c.remove()) {
                 disconnect(c);
             }
 
