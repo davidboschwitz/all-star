@@ -93,6 +93,15 @@ public class AudioRecorder extends Thread {
      */
     public void stopRecording() {
         dataLine.stop();
+    }
+    
+    /**
+     * We used to close our TargetDataLine with the stopRecording() method, but 
+     * that caused an error that would only allow one transmission per session.
+     * 
+     * This method closes the TargetDataLine.
+     */
+    public void closeDataLine(){
         dataLine.close();
     }
 
