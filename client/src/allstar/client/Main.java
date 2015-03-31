@@ -43,7 +43,12 @@ public class Main {
      */
     public static void main(String[] args) {
         if (args.length > 0) {
-            ip = args[0];
+            if (args[0].contains(":")) {
+                port = Integer.parseInt(args[0].substring(args[0].indexOf(":")+1));
+                ip = args[0].substring(0, args[0].indexOf(":"));
+            } else {
+                ip = args[0];
+            }
         }
         /* For simplicity, the audio data format used for recording
          is hardcoded here. We use PCM 44.1 kHz, 16 bit signed,
@@ -85,17 +90,14 @@ public class Main {
         BufferedReader line = new BufferedReader(new InputStreamReader(System.in));
         /* The next line */
         String next = "";
-        /* Again for simplicity, we've hardcoded the audio file
-         type, too. */
-        
 
-        /* Now, we are creating an SimpleAudioRecorder object. It
+        /* Now, we are creating an AudioRecorder object. It
          contains the logic of starting and stopping the
          recording, reading audio data from the TargetDataLine
          and writing the data to a file.
          */
-        /* Start the Process class */
         client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
+        /* Start the Process class */
         new Thread(new Process()).start();
         try {
             /* waits for the next line of input into the prompt */
@@ -103,7 +105,7 @@ public class Main {
                 //System.out.println("[sent]: "+next);
                 if (Defaults.AudioEnabled) {
                     if (next.equals("start")) {
-                        client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
+                        //client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
                         System.out.println("Started.");
                         stopped = false;
                         //Main.client.audio.audioOut();
