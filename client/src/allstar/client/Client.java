@@ -18,7 +18,6 @@ public class Client {
     /**
      * Audio output clip?
      */
-    protected AudioClient audio;
     protected AudioPlayer player = new AudioPlayer();
     protected AudioRecorder recorder;
     

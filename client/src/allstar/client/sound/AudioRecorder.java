@@ -39,6 +39,7 @@ import javax.sound.sampled.TargetDataLine;
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
 /**
  *
  * @author davidboschwitz
@@ -48,6 +49,9 @@ public class AudioRecorder extends Thread {
     private TargetDataLine dataLine;
     private AudioFileFormat.Type m_targetType;
     private AudioInputStream audioInputStream;
+    /**
+     * The OutputStream object for the audio buffer.
+     */
     private OutputStream outputStream;
 
     public AudioRecorder(TargetDataLine line, AudioFileFormat.Type targetType, OutputStream out) {
@@ -93,6 +97,15 @@ public class AudioRecorder extends Thread {
      */
     public void stopRecording() {
         dataLine.stop();
+    }
+
+    /**
+     * We used to close our TargetDataLine with the stopRecording() method, but
+     * that caused an error that would only allow one transmission per session.
+     *
+     * This method closes the TargetDataLine.
+     */
+    public void closeDataLine() {
         dataLine.close();
     }
 
@@ -119,6 +132,5 @@ public class AudioRecorder extends Thread {
             e.printStackTrace();
         }
     }
-    
-    
+
 }

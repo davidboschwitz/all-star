@@ -63,6 +63,7 @@ public class ClientHandler {
                 if (Defaults.TextEnabled) {
                     s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
                 }
+                println("("+c.SESSION_ID+") is talking.");
                 s.out.write(buffer, 0, currentLength);
                 if (Defaults.TextEnabled) {
                     s.out.write("\n".getBytes());
@@ -89,7 +90,7 @@ public class ClientHandler {
                 continue;
             }
             c.process();
-            if (c.remove()) {
+            if (!c.isTalking && c.remove()) {
                 disconnect(c);
             }
 
