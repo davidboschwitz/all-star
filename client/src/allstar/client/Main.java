@@ -96,7 +96,7 @@ public class Main {
          recording, reading audio data from the TargetDataLine
          and writing the data to a file.
          */
-        client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
+        //client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
         /* Start the Process class */
         new Thread(new Process()).start();
         try {
@@ -105,7 +105,7 @@ public class Main {
                 //System.out.println("[sent]: "+next);
                 if (Defaults.AudioEnabled) {
                     if (next.equals("start")) {
-                        //client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
+                        client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
                         System.out.println("Started.");
                         stopped = false;
                         //Main.client.audio.audioOut();
