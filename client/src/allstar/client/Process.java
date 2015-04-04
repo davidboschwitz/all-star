@@ -21,7 +21,7 @@ public class Process implements Runnable {
             ioe.printStackTrace();
             return;
         }
-        if (Defaults.AudioEnabled) {
+        if (Defaults.AUDIO_ENABLED) {
             try {
                 while (true) {
                     if (in.available() > 0) {
@@ -33,7 +33,7 @@ public class Process implements Runnable {
                 return;
             }
         }
-        if (Defaults.TextEnabled) {
+        if (Defaults.TEXT_ENABLED) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String next = "";
             try {
