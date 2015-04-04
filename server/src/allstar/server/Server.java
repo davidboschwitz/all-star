@@ -1,5 +1,6 @@
 package allstar.server;
 
+import allstar.util.Defaults;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -18,6 +19,7 @@ public class Server {
     protected static Thread listenerThread;
     public static ClientHandler clientHandler;
     public static Processing process;
+    protected static Thread processThread;
     public static int port = 2727;
     protected static String password = "all-star";
 
@@ -26,10 +28,10 @@ public class Server {
      */
     public static void main(String[] args) {
         /* init max clients/clienthandler */
-        clientHandler = new ClientHandler(20);
+        clientHandler = new ClientHandler(Defaults.MAX_CLIENTS);
 
         /* start threads */
-        new Thread(process = new Processing()).start();
+        (processThread = new Thread(process = new Processing())).start();
         (listenerThread = new Thread(listener = new ConnectionListener())).start();
 
         /* Server-Side Commands to keep it running here  */
@@ -39,12 +41,18 @@ public class Server {
             while ((cmd = line.readLine()) != null) {
                 if (cmd.equalsIgnoreCase("close") || cmd.equalsIgnoreCase("stop")) {
                     process.Stop();
+                    try{
+                    processThread.join();
+                    }catch(InterruptedException ie){
+                        ie.printStackTrace();
+                    }
                     return;
                 }
             }
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
         }
+        System.exit(0);
     }
 
 }

@@ -60,12 +60,12 @@ public class ClientHandler {
                 continue;
             }
             try {
-                if (Defaults.TextEnabled) {
+                if (Defaults.TEXT_ENABLED) {
                     s.out.write(("[" + c.SESSION_ID + "]: ").getBytes());
                 }
                 println("("+c.SESSION_ID+") is talking.");
                 s.out.write(buffer, 0, currentLength);
-                if (Defaults.TextEnabled) {
+                if (Defaults.TEXT_ENABLED) {
                     s.out.write("\n".getBytes());
                 }
                 s.out.flush();

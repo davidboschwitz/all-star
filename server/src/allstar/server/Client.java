@@ -58,7 +58,7 @@ public class Client {
     }
 
     private void initialize() throws java.io.IOException {
-        if (Defaults.TextEnabled) {
+        if (Defaults.TEXT_ENABLED) {
             out.write(("Connection Accepted - [" + SESSION_ID + "]\n").getBytes());
         }
         //inStream.size = in.read(inStream.buffer);
