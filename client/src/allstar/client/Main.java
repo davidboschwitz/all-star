@@ -24,11 +24,11 @@ public class Main {
      * The ip-address to attempt to connect to (Default
      * <code>davidboschwitz.student.iastate.edu</code>.
      */
-    public static String ip = Defaults.ServerIP;
+    public static String ip = Defaults.SERVER_IP;
     /**
      * The port to attempt to connect to (Default <code>2727</code>).
      */
-    public static int port = Defaults.port;
+    public static int port = Defaults.SERVER_PORT;
     /**
      * The Client object that holds most of the data for the client.
      */
@@ -44,7 +44,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length > 0) {
             if (args[0].contains(":")) {
-                port = Integer.parseInt(args[0].substring(args[0].indexOf(":")+1));
+                port = Integer.parseInt(args[0].substring(args[0].indexOf(":") + 1));
                 ip = args[0].substring(0, args[0].indexOf(":"));
             } else {
                 ip = args[0];
@@ -103,29 +103,44 @@ public class Main {
             /* waits for the next line of input into the prompt */
             while ((next = line.readLine()) != null) {
                 //System.out.println("[sent]: "+next);
-                if (Defaults.AudioEnabled) {
+                if (Defaults.AUDIO_ENABLED) {
                     if (next.equals("start")) {
                         client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
-                        System.out.println("Started.");
+                        System.out.println("Started Recording.");
                         stopped = false;
                         //Main.client.audio.audioOut();
                         client.recorder.start();
                     }
                     if (next.equals("stop")) {
-                        System.out.println("Stopped.");
+                        System.out.println("Stopped Recording.");
                         client.recorder.stopRecording();
                         stopped = true;
                     }
+                    if (next.equals("close")) {
+                        close();
+                        break;
+                    }
                 }
-                if (Defaults.TextEnabled) {
+                if (Defaults.TEXT_ENABLED) {
                     out.write(next.getBytes());
                     out.flush();
                 }
             }
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
-            System.exit(1);
         }
+        if (client.recorder != null) {
+            client.recorder.stopRecording();
+            client.recorder.closeDataLine();
+        }
+        System.exit(1);
     }
 
+    private static void close() {
+        System.out.println("Closing...");
+        if (client.recorder != null) {
+            client.recorder.stopRecording();
+        }
+        stopped = true;
+    }
 }
