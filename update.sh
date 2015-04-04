@@ -1,7 +1,7 @@
 #!/bin/bash
 # all-star IRLP Node RaspberryPi Update Script
 # Made by David Boschwitz
-# Updated 3/10/2015
+# Updated 4/4/2015
 
 echo "Starting Update for RaspberryPi all-star client..."
 echo ""
