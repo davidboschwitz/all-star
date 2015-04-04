@@ -16,3 +16,10 @@ Omar Taylor<br>
 
 Some Contributions by:<br>
 Hunter Praska
+
+
+# Install info
+To correctly build and install the program you will need the following programs installed on a command-line/terminal level:
+-ant
+-java
+-git
