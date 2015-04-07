@@ -33,6 +33,8 @@ public class GPIO {
             println("Start exec");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
+        } catch (Throwable e){
+            e.printStackTrace();
         }
     }
 
