@@ -27,6 +27,7 @@ public class GPIO {
             println("Cannot start output: already started!");
             return;
         }
+        println("Start 1.");
         try {
             out = Runtime.getRuntime().exec("sudo python ~/all-star/gpio/keyed.py");
         } catch (java.io.IOException ioe) {
