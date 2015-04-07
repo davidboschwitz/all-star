@@ -1,1 +1,1 @@
-sudo python keyed.py
+sudo python ~/all-star/keyed.py
