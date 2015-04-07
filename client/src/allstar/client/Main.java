@@ -98,7 +98,7 @@ public class Main {
          */
         //client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
         /* Start the Process class */
-        new Thread(new Process()).start();
+        new Thread(new Processing()).start();
         try {
             /* waits for the next line of input into the prompt */
             while ((next = line.readLine()) != null) {
