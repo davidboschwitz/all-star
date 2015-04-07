@@ -10,7 +10,6 @@ led = 4
 GPIO.setup(led, GPIO.OUT);
 
 for i in xrange(15):
-	time.sleep(5)
 	# Turn LED on
 	GPIO.output(led, 1)
 	# wait 5 seconds
