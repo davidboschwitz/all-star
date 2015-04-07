@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 # Get GPIO pins ready
 GPIO.setmode(GPIO.BCM)
