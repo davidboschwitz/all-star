@@ -11,7 +11,7 @@ GPIO.setup(led, GPIO.OUT);
 # Turn LED on
 GPIO.output(led, 1)
 # wait for input
-raw_input('press a key to continue');
+ina = raw_input('press a key to continue');
 # Turn LED off
 GPIO.output(led, 0)
 
