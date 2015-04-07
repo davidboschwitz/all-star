@@ -1,1 +1,1 @@
-sudo python ~/all-star/keyed.py
+sudo python ~/all-star/gpio/keyed.py
