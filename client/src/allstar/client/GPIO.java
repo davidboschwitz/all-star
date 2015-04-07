@@ -30,6 +30,7 @@ public class GPIO {
         println("Start 1.");
         try {
             out = Runtime.getRuntime().exec("sh ~/all-star/gpio/key.sh");
+            println("Start exec");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
         }
@@ -40,8 +41,11 @@ public class GPIO {
             return;
         }
         try {
+            println("Stop 1");
             out.getOutputStream().write("\n".getBytes());
+            println("Stop write");
             out.getOutputStream().flush();
+            println("Stop flush");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
         }
