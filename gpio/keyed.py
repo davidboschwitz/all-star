@@ -9,11 +9,12 @@ led = 4
 GPIO.setup(led, GPIO.OUT);
 
 # Turn LED on
+print("on")
 GPIO.output(led, 1)
 # wait for input
-ina = raw_input('press a key to continue');
+ina = raw_input('press a key to continue')
 # Turn LED off
 GPIO.output(led, 0)
-
+print("off")
 # Clean up ports
 GPIO.cleanup()
