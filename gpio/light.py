@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # Set pin 4 to output
-led = 8
+led = 4
 GPIO.setup(led, GPIO.OUT);
 
 for i in xrange(15):
