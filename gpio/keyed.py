@@ -11,12 +11,12 @@ GPIO.setup(led, GPIO.OUT);
 
 # Turn LED on
 print("on")
-GPIO.output(led, 1)
+GPIO.output(led, 0)
 # wait for input
 time.sleep(5)
 #ina = raw_input('press a key to continue')
 # Turn LED off
-GPIO.output(led, 0)
+GPIO.output(led, 1)
 
 time.sleep(5)
 print("off")
