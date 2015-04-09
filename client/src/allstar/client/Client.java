@@ -18,7 +18,7 @@ public class Client {
     /**
      * Audio output object.
      */
-    protected AudioPlayer player = new AudioPlayer();
+    public AudioPlayer player = new AudioPlayer();
     /**
      * Audio input object.
      */

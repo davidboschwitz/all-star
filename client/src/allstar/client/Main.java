@@ -1,6 +1,6 @@
 package allstar.client;
 
-import allstar.client.sound.AudioRecorder;
+import allstar.client.sound.*;
 import allstar.util.Defaults;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -98,7 +98,8 @@ public class Main {
          */
         //client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
         /* Start the Process class */
-        new Thread(new Processing()).start();
+        new Thread(new Processing(client)).start();
+        new Thread(client.player.thread = new AudioPlayerThread(client)).start();
         try {
             /* waits for the next line of input into the prompt */
             while ((next = line.readLine()) != null) {
