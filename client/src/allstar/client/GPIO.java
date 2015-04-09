@@ -32,7 +32,7 @@ public class GPIO {
         }
         println("Start 1.");
         try {
-            out = Runtime.getRuntime().exec("sh ~/all-star/gpio/key.sh");
+            out = Runtime.getRuntime().exec("sudo python ~/all-star/gpio/5sec.py");
             println("Start exec");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
