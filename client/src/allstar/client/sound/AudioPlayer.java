@@ -51,6 +51,9 @@ import javax.sound.sampled.SourceDataLine;
  */
 public class AudioPlayer {
 
+    public long lastTalk = 0;
+    public AudioPlayerThread thread;
+
     public void play(InputStream in) {
 
         BufferedInputStream bIN = new BufferedInputStream(in);
@@ -152,6 +155,7 @@ public class AudioPlayer {
             if (nBytesRead >= 0) {
                 int nBytesWritten = line.write(abData, 0, nBytesRead);
             }
+            lastTalk = System.currentTimeMillis();
         }
         println("after while loop");
 
