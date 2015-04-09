@@ -27,8 +27,8 @@ public class Processing implements Runnable {
                     if (in.available() > 0) {
                         GPIO.GPIO_OUTPUT_START();
                         Main.client.player.play(in);
-                    } else {
                         GPIO.GPIO_OUTPUT_STOP();
+                    } else {
                     }
                 }
             } catch (java.io.IOException ioe) {
