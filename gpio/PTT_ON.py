@@ -10,7 +10,6 @@ led = 4
 GPIO.setup(led, GPIO.OUT);
 
 # Turn LED on
-GPIO.output(led, 1)
-print("off")
+GPIO.output(led, 0)
+print("on")
 # Clean up ports
-GPIO.cleanup()

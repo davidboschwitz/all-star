@@ -9,7 +9,6 @@ GPIO.setwarnings(False)
 led = 4
 GPIO.setup(led, GPIO.OUT);
 
-# Turn LED on
-print("on")
-GPIO.output(led, 0)
-GPIO.cleanup()
+# Turn LED off
+print("off")
+GPIO.output(led, 1)
