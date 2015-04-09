@@ -49,10 +49,6 @@ public class GPIO {
             println("Process is null");
             return;
         }
-        if (out != null) {
-            println("Cannot start output: already started!");
-            return;
-        }
         println("stop 1.");
         try {
             out = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "sudo python ~/all-star/gpio/PTT_OFF.py"});
