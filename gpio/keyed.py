@@ -17,5 +17,6 @@ ina = raw_input('press a key to continue')
 # Turn LED off
 GPIO.output(led, 1)
 print("off")
+time.sleep(5)
 # Clean up ports
 GPIO.cleanup()
