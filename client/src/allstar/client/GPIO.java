@@ -32,33 +32,36 @@ public class GPIO {
         }
         println("Start 1.");
         try {
-            out = Runtime.getRuntime().exec("sudo python ~/all-star/gpio/5sec.py");
+            out = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "sudo python ~/all-star/gpio/PTT_ON.py"});
             println("Start exec");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
-        } catch (Throwable e){
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 
+     *
      */
     public static void OUTPUT_STOP() {
         if (out == null) {
             println("Process is null");
             return;
         }
+        if (out != null) {
+            println("Cannot start output: already started!");
+            return;
+        }
+        println("stop 1.");
         try {
-            println("Stop 1");
-            out.getOutputStream().write("\n".getBytes());
-            println("Stop write");
-            out.getOutputStream().flush();
-            println("Stop flush");
+            out = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "sudo python ~/all-star/gpio/PTT_OFF.py"});
+            println("stop exec");
         } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
-        out = null;
     }
 
     private static void println(String s) {
