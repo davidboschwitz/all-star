@@ -12,42 +12,21 @@ import java.io.InputStreamReader;
  */
 public class Processing implements Runnable {
 
+    private Client client;
+    private boolean pttStarted = false;
+
+    Processing(Client c) {
+        this.client = c;
+    }
+
     @Override
     public void run() {
-        InputStream in;
-        try {
-            in = Main.client.socket.getInputStream();
-        } catch (java.io.IOException ioe) {
-            ioe.printStackTrace();
-            return;
-        }
-        if (Defaults.AUDIO_ENABLED) {
-            try {
-                while (true) {
-                    if (in.available() > 0) {
-                        Main.client.player.play(in);
-                        //GPIO.GPIO_OUTPUT_STOP();
-                    } else {
-                    }
-                }
-            } catch (java.io.IOException ioe) {
-                ioe.printStackTrace();
-                return;
-            }catch (Exception e){
-                e.printStackTrace();
-                return;
+        while (true) {
+            if(pttStarted && client.player.lastTalk + 1000 < System.currentTimeMillis()){
+                GPIO.OUTPUT_STOP();
             }
-        }
-        if (Defaults.TEXT_ENABLED) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            String next = "";
-            try {
-                while ((next = reader.readLine()) != null) { //wait for next line of input from server
-                    System.out.println(next);
-                }
-            } catch (java.io.IOException ioe) {
-                ioe.printStackTrace();
-                return;
+            if(!pttStarted && client.player.lastTalk + 1000 > System.currentTimeMillis()){
+                GPIO.OUTPUT_START();
             }
         }
     }
