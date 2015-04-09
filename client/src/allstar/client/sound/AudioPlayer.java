@@ -120,7 +120,6 @@ public class AudioPlayer {
             System.exit(1);
         }
 
-        GPIO.OUTPUT_START();
         /*
          Still not enough. The line now can receive data,
          but will not pass them on to the audio output device
@@ -144,10 +143,12 @@ public class AudioPlayer {
         byte[] abData = new byte[Defaults.EXTERNAL_BUFFER_SIZE];
         while (nBytesRead != -1) {
             try {
+                GPIO.OUTPUT_STOP();
                 nBytesRead = audioInputStream.read(abData, 0, abData.length);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            GPIO.OUTPUT_START();
             if (nBytesRead >= 0) {
                 int nBytesWritten = line.write(abData, 0, nBytesRead);
             }
@@ -170,7 +171,6 @@ public class AudioPlayer {
          */
         line.close();
         println("close()");
-        GPIO.OUTPUT_STOP();
     }
 
     private static void println(String s) {
