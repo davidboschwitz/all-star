@@ -25,7 +25,6 @@ public class Processing implements Runnable {
             try {
                 while (true) {
                     if (in.available() > 0) {
-                        GPIO.GPIO_OUTPUT_START();
                         Main.client.player.play(in);
                         //GPIO.GPIO_OUTPUT_STOP();
                     } else {

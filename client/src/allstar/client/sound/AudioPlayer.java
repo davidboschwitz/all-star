@@ -5,6 +5,7 @@
  */
 package allstar.client.sound;
 
+import allstar.client.GPIO;
 import allstar.util.Defaults;
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -119,7 +120,8 @@ public class AudioPlayer {
             e.printStackTrace();
             System.exit(1);
         }
-
+        
+        GPIO.OUTPUT_START();
         /*
          Still not enough. The line now can receive data,
          but will not pass them on to the audio output device
@@ -166,6 +168,6 @@ public class AudioPlayer {
          All data are played. We can close the shop.
          */
         line.close();
-
+        GPIO.OUTPUT_STOP();
     }
 }
