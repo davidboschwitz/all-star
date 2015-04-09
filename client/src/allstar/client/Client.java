@@ -16,9 +16,12 @@ public class Client {
      */
     public Socket socket;
     /**
-     * Audio output clip?
+     * Audio output object.
      */
     protected AudioPlayer player = new AudioPlayer();
+    /**
+     * Audio input object.
+     */
     protected AudioRecorder recorder;
     
     public Client(Socket s) {

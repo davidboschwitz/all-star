@@ -22,6 +22,9 @@ public class GPIO {
 
     }
 
+    /**
+     * Cue the GPIO Pins to simulate pressing the PTT button on the radio.
+     */
     public static void GPIO_OUTPUT_START() {
         if (out != null) {
             println("Cannot start output: already started!");
@@ -38,8 +41,12 @@ public class GPIO {
         }
     }
 
+    /**
+     * 
+     */
     public static void GPIO_OUTPUT_STOP() {
         if (out == null) {
+            println("Process is null");
             return;
         }
         try {
