@@ -34,6 +34,9 @@ public class Processing implements Runnable {
             } catch (java.io.IOException ioe) {
                 ioe.printStackTrace();
                 return;
+            }catch (Exception e){
+                e.printStackTrace();
+                return;
             }
         }
         if (Defaults.TEXT_ENABLED) {
