@@ -24,9 +24,11 @@ public class Processing implements Runnable {
         while (true) {
             if(pttStarted && client.player.lastTalk + 1000 < System.currentTimeMillis()){
                 GPIO.OUTPUT_STOP();
+                pttStarted = false;
             }
             if(!pttStarted && client.player.lastTalk + 1000 > System.currentTimeMillis()){
                 GPIO.OUTPUT_START();
+                pttStarted = true;
             }
         }
     }
