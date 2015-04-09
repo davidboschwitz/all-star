@@ -26,8 +26,7 @@ public class GPIO {
      * Cue the GPIO Pins to simulate pressing the PTT button on the radio.
      */
     public static void OUTPUT_START() {
-        
-        println("Start 1.");
+        //println("Start 1.");
         try {
             out = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "sudo python ~/all-star/gpio/PTT_ON.py"});
             println("Start exec");
@@ -42,8 +41,7 @@ public class GPIO {
      *
      */
     public static void OUTPUT_STOP() {
-        
-        println("stop 1.");
+        // println("stop 1.");
         try {
             out = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "sudo python ~/all-star/gpio/PTT_OFF.py"});
             println("stop exec");
