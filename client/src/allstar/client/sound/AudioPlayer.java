@@ -146,12 +146,12 @@ public class AudioPlayer {
         byte[] abData = new byte[Defaults.EXTERNAL_BUFFER_SIZE];
         while (nBytesRead != -1) {
             try {
-                GPIO.OUTPUT_STOP();
+                //GPIO.OUTPUT_STOP();
                 nBytesRead = audioInputStream.read(abData, 0, abData.length);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            GPIO.OUTPUT_START();
+            //GPIO.OUTPUT_START();
             if (nBytesRead >= 0) {
                 int nBytesWritten = line.write(abData, 0, nBytesRead);
             }
