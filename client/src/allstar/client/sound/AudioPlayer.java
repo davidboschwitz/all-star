@@ -50,10 +50,9 @@ import javax.sound.sampled.SourceDataLine;
  * @author davidboschwitz
  */
 public class AudioPlayer {
-    
-    
-    public void play(InputStream in){
-        
+
+    public void play(InputStream in) {
+
         BufferedInputStream bIN = new BufferedInputStream(in);
         /*
          We have to read in the sound file.
@@ -120,7 +119,7 @@ public class AudioPlayer {
             e.printStackTrace();
             System.exit(1);
         }
-        
+
         GPIO.OUTPUT_START();
         /*
          Still not enough. The line now can receive data,
@@ -129,6 +128,7 @@ public class AudioPlayer {
          activated.
          */
         line.start();
+        println("start()");
 
         /*
          Ok, finally the line is prepared. Now comes the real
@@ -152,6 +152,7 @@ public class AudioPlayer {
                 int nBytesWritten = line.write(abData, 0, nBytesRead);
             }
         }
+        println("after while loop");
 
         /*
          Wait until all data are played.
@@ -163,11 +164,16 @@ public class AudioPlayer {
          path to this solution.
          */
         line.drain();
-
+        println("drain()");
         /*
          All data are played. We can close the shop.
          */
         line.close();
+        println("close()");
         GPIO.OUTPUT_STOP();
+    }
+
+    private static void println(String s) {
+        System.out.println("[AudioPlayer]: " + s);
     }
 }
