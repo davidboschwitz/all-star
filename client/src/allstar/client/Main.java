@@ -107,13 +107,13 @@ public class Main {
                 if (Defaults.AUDIO_ENABLED) {
                     if (next.equals("start")) {
                         client.recorder = new AudioRecorder(targetDataLine, Defaults.FileFormatType, out);
-                        System.out.println("Started Recording.");
+                        System.out.println("Started Transmitting.");
                         stopped = false;
                         //Main.client.audio.audioOut();
                         client.recorder.start();
                     }
                     if (next.equals("stop")) {
-                        System.out.println("Stopped Recording.");
+                        System.out.println("Stopped Transmitting.");
                         client.recorder.stopRecording();
                         stopped = true;
                     }
