@@ -123,6 +123,14 @@ public class Client {
         }
         return removeMe;
     }
+    
+    
+    long lastTalkUpdate = 0;
+    protected void iAmTalking(){
+        if(lastTalkUpdate + 5000 > System.currentTimeMillis())return;
+        lastTalkUpdate = System.currentTimeMillis();
+        println("talking.");
+    }
 
     private void println(String s) {
         Server.out.println(this + ": " + s);

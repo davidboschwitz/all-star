@@ -6,7 +6,7 @@ package allstar.server;
  *
  * @author davidboschwitz
  */
-class Processing implements Runnable {
+public class Processing implements Runnable {
 
     private static boolean STOP = false;
     private static boolean isRunning = false;
@@ -19,21 +19,20 @@ class Processing implements Runnable {
         }
         println("Initializing...");
         isRunning = true;
-        do {
+        while(true) {
             if (STOP) {
                 println("Stopping...");
                 break;
             }
             Server.clientHandler.process();
-
-        } while (true);
+        } 
         Server.clientHandler.disconnectAll();
+        isRunning = false;
         try{
         Server.listenerThread.join();
         }catch(InterruptedException ie){
             ie.printStackTrace();
         }
-        isRunning = false;
     }
 
     /**

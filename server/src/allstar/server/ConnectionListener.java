@@ -4,11 +4,13 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Listens for new connections and connects Clients when they initiate a connection.
+ * Listens for new connections and connects Clients when they initiate a
+ * connection.
+ *
  * @author davidboschwitz
  */
 public class ConnectionListener implements Runnable {
-    
+
     private static ServerSocket listener;
 
     @Override
@@ -26,10 +28,16 @@ public class ConnectionListener implements Runnable {
         }
         println("Initialized.");
         try {
-            while(Processing.isRunning()) {
+            while (Processing.isRunning()) {
                 int lastID = -1;
                 Socket socket = listener.accept();
                 println("New Connection from: " + socket.getRemoteSocketAddress());
+                while (Server.clientHandler.lastTalk + 500 > System.currentTimeMillis()) {
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ie) {
+                    }
+                }
                 try {
                     lastID = Server.clientHandler.addClient(socket);
                 } catch (java.io.IOException ioe) {
@@ -40,12 +48,12 @@ public class ConnectionListener implements Runnable {
                     socket.close();
                 }
             }
-        }catch(java.io.IOException ioe){
+        } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
         } finally {
-            try{
-            listener.close();
-            }catch(java.io.IOException ioe){
+            try {
+                listener.close();
+            } catch (java.io.IOException ioe) {
                 ioe.printStackTrace();
             }
         }

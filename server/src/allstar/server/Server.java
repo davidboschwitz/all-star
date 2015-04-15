@@ -36,7 +36,7 @@ public class Server {
 
         /* Server-Side Commands to keep it running here  */
         BufferedReader line = new BufferedReader(new InputStreamReader(System.in));
-        String cmd = "";
+        String cmd;
         try {
             while ((cmd = line.readLine()) != null) {
                 if (cmd.equalsIgnoreCase("close") || cmd.equalsIgnoreCase("stop")) {

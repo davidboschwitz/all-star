@@ -13,6 +13,7 @@ public class ClientHandler {
     private final Client[] clients;
     private byte[] buffer = new byte[Defaults.EXTERNAL_BUFFER_SIZE];
     private int currentLength = 0;
+    public long lastTalk = 0;
 
     ClientHandler(int MAX_CLIENTS) {
         this.MAX_CLIENTS = MAX_CLIENTS;
@@ -46,6 +47,7 @@ public class ClientHandler {
     }
 
     void sendToAll(Client c) throws java.io.IOException {
+        lastTalk = System.currentTimeMillis();
         c.isTalking = true;
         currentLength = c.in.read(buffer);
         for (int i = 0; i < MAX_CLIENTS; i++) {
