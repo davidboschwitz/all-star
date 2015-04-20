@@ -23,3 +23,6 @@ hs_err_pid*
 /server/build/
 /utility/dist/
 /server/dist/
+
+#VIM Buffer Files#
+.swp
