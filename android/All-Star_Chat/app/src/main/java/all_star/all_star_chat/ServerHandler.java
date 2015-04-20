@@ -4,20 +4,24 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Bundle;
 import android.os.IBinder;
-
-import java.io.DataOutputStream;
+import android.widget.Toast;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+
+//TODO: Implement a way to stop recording while output is plying or vice-versa
+//UPDATE: Should be implemented by server
 
 public class ServerHandler extends Service {
 
@@ -29,15 +33,34 @@ public class ServerHandler extends Service {
     private static int BUFFER_SIZE = AudioRecord.getMinBufferSize(RECORDING_RATE, CHANNEL, FORMAT);
     String address;
     OutputStream out;
+    InputStream in;
     Socket socket;
     Intent i;
+    Intent backpls = new Intent(this, Login.class);
     BroadcastReceiver checker;
+    MediaPlayer mp = new MediaPlayer();
+
+ /*
+    constructor
+ */
+    public ServerHandler() {
+
+    }
 
 
+    /*
+    once the service starts -
+        initialize server connection
+        set intent
+        try to pull audio from server
+        start a broadcast receiver that will check to see if the button is pushed and broadcast audio to server
+*/
     public int onStartCommand (Intent intent, int flags, int startId){
         address = intent.getStringExtra("ip_address");
         init();
         i = intent;
+        getAudio();
+
         checker = new BroadcastReceiver() {
 
             @Override
@@ -55,21 +78,52 @@ public class ServerHandler extends Service {
         return START_STICKY;
     }
 
+    /*
+        initializes connection to the server
+     */
     private void init(){
         try {
             socket = new Socket(address, 2727);
             out = socket.getOutputStream();
-
-        }catch(UnknownHostException uhe){
-
-        }catch(java.io.IOException ioe){
-            ioe.printStackTrace();
+            in = socket.getInputStream();
+        }
+        catch(UnknownHostException uhe){
+            Toast.makeText(getApplicationContext(), "Error: Incorrect IP; Returning to Login",Toast.LENGTH_LONG);
+            startActivity(backpls);
+        }
+        catch(java.io.IOException ioe){
+            Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...",Toast.LENGTH_SHORT).show();
         }
     }
 
+    /*
+        takes the audio from the server
+     */
+    public void getAudio(){
+        try {
+            byte[] buffer = new byte[128000];
+            in.read(buffer);
+            playAudio(buffer);
+        }
+        catch(IOException ioe){return;}
+    }
 
-    public ServerHandler() {
-
+    /*
+        tries to play the audio
+     */
+    private void playAudio(byte[] mp3SoundByteArr){
+        try {
+            File tempMp3 = File.createTempFile("buffer", "mp3", getCacheDir());
+            tempMp3.deleteOnExit();
+            FileOutputStream fos = new FileOutputStream(tempMp3);
+            fos.write(mp3SoundByteArr);
+            fos.close();
+            FileInputStream fis = new FileInputStream(tempMp3);
+            mp.reset();
+            mp.setDataSource(fis.getFD());
+            mp.start();
+        }
+        catch(IOException ioe){return;}
     }
 
     public void startStreaming() {
@@ -104,7 +158,7 @@ public class ServerHandler extends Service {
                     while (cSA) {
 
                         // read the data into the buffer
-                        int read = recorder.read(buffer, 0, buffer.length);
+                        recorder.read(buffer, 0, buffer.length);
 
 
 
@@ -123,6 +177,7 @@ public class ServerHandler extends Service {
 
 
                 } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Error Sending Message",Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -132,9 +187,7 @@ public class ServerHandler extends Service {
         streamThread.start();
     }
 
-    public Socket getSocket() {
-        return socket;
-    }
+
 
     @Override
     public IBinder onBind(Intent intent) {

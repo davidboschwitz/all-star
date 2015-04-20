@@ -43,7 +43,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_alignParentEnd="true"
@@ -51,8 +51,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:contentDescription="Dog"
+        android:contentDescription="@string/Logo"
         android:cropToPadding="true"
-        android:src="@drawable/prof" />
+        android:src="@drawable/logo_land" />
 
 </RelativeLayout>
