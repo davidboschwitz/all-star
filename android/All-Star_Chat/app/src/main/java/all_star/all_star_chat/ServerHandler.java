@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.IBinder;
 import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,25 +29,36 @@ public class ServerHandler extends Service {
     private static final int RECORDING_RATE = 44100;
     private static final int CHANNEL = AudioFormat.CHANNEL_IN_STEREO;
     private static final int FORMAT = AudioFormat.ENCODING_PCM_16BIT;
-    private AudioRecord recorder = null;
-    boolean cSA = false;
     private static int BUFFER_SIZE = AudioRecord.getMinBufferSize(RECORDING_RATE, CHANNEL, FORMAT);
+    boolean cSA = false;
+    private BroadcastReceiver checker = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            cSA = intent.getBooleanExtra("currentlySendingAudio", false);
+            if (cSA) {
+                startStreaming();
+            } else recorder.release();
+        }
+    };
     String address;
     OutputStream out;
     InputStream in;
     Socket socket;
+    Context c;
     Intent i;
     Intent backpls = new Intent(this, Login.class);
-    BroadcastReceiver checker;
+    //BroadcastReceiver checker;
     MediaPlayer mp = new MediaPlayer();
+    private AudioRecord recorder = null;
 
- /*
-    constructor
- */
+
+    /*
+       constructor
+    */
     public ServerHandler() {
 
     }
-
 
     /*
     once the service starts -
@@ -55,63 +67,53 @@ public class ServerHandler extends Service {
         try to pull audio from server
         start a broadcast receiver that will check to see if the button is pushed and broadcast audio to server
 */
-    public int onStartCommand (Intent intent, int flags, int startId){
+    public int onStartCommand(Intent intent, int flags, int startId) {
         address = intent.getStringExtra("ip_address");
         init();
         i = intent;
         getAudio();
 
-        checker = new BroadcastReceiver() {
-
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                cSA = intent.getBooleanExtra("currentlySendingAudio", false);
-                if(cSA) {
-                    startStreaming();
-                }
-                else recorder.release();
-            }
-        };
-
-
-
-        return START_STICKY;
+        return START_REDELIVER_INTENT;
     }
 
     /*
         initializes connection to the server
      */
-    private void init(){
+    private void init() {
         try {
             socket = new Socket(address, 2727);
             out = socket.getOutputStream();
             in = socket.getInputStream();
-        }
-        catch(UnknownHostException uhe){
-            Toast.makeText(getApplicationContext(), "Error: Incorrect IP; Returning to Login",Toast.LENGTH_LONG);
+        } catch (UnknownHostException uhe) {
+            Toast.makeText(getApplicationContext(), "Error: Incorrect IP; Returning to Login", Toast.LENGTH_LONG);
             startActivity(backpls);
-        }
-        catch(java.io.IOException ioe){
-            Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...",Toast.LENGTH_SHORT).show();
+        } catch (java.io.IOException ioe) {
+            Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...", Toast.LENGTH_SHORT).show();
         }
     }
 
     /*
-        takes the audio from the server
-     */
-    public void getAudio(){
+            takes the audio from the server
+         */
+    public void getAudio() {
+        byte[] buffer = new byte[128000];
         try {
-            byte[] buffer = new byte[128000];
-            in.read(buffer);
-            playAudio(buffer);
+            while (true) {
+                in.read(buffer);
+                playAudio(buffer);
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch(IOException ioe){return;}
+
     }
 
     /*
         tries to play the audio
      */
-    private void playAudio(byte[] mp3SoundByteArr){
+    private void playAudio(byte[] mp3SoundByteArr) {
         try {
             File tempMp3 = File.createTempFile("buffer", "mp3", getCacheDir());
             tempMp3.deleteOnExit();
@@ -121,13 +123,15 @@ public class ServerHandler extends Service {
             FileInputStream fis = new FileInputStream(tempMp3);
             mp.reset();
             mp.setDataSource(fis.getFD());
+            mp.prepare();
             mp.start();
+
+        } catch (IOException ioe) {
+            return;
         }
-        catch(IOException ioe){return;}
     }
 
     public void startStreaming() {
-
 
 
         Thread streamThread = new Thread(new Runnable() {
@@ -135,9 +139,6 @@ public class ServerHandler extends Service {
             @Override
             public void run() {
                 try {
-
-
-
 
 
                     byte[] buffer = new byte[128000];
@@ -161,7 +162,6 @@ public class ServerHandler extends Service {
                         recorder.read(buffer, 0, buffer.length);
 
 
-
 //                        // place contents of buffer into the packet
 //                        packet = new DatagramPacket(buffer, read,
 //                                serverAddress, 2727);
@@ -171,13 +171,12 @@ public class ServerHandler extends Service {
 
 
                         out.write(buffer);
-                        cSA = i.getBooleanExtra("currentlySendingAudio",cSA);
+                        cSA = i.getBooleanExtra("currentlySendingAudio", cSA);
                     }
 
 
-
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error Sending Message",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error Sending Message", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -188,13 +187,11 @@ public class ServerHandler extends Service {
     }
 
 
-
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
-
 
 
 }

@@ -2,44 +2,19 @@ package all_star.all_star_chat;
 
 
 import android.content.Intent;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaRecorder;
-import android.net.Uri;
-import android.os.ParcelFileDescriptor;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.Socket;
 
 //import
-import java.net.Socket;
-import java.net.URI;
-
-import static android.media.AudioFormat.Builder;
 
 
 public class Chat extends ActionBarActivity {
     final Intent i = new Intent(this, ServerHandler.class);
-
-
-
-
-
-
-
-
 
 
     @Override
@@ -49,9 +24,7 @@ public class Chat extends ActionBarActivity {
         ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
 
 
-
-
-        btn.setOnTouchListener( new View.OnTouchListener() {
+        btn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -72,28 +45,17 @@ public class Chat extends ActionBarActivity {
     }
 
     private void startStreamingAudio() {
-        i.putExtra("currentlySendingAudio",true);
+        i.putExtra("currentlySendingAudio", true);
         sendBroadcast(i);
 
 //        ServerHandler.startStreaming();
     }
 
     private void stopStreamingAudio() {
-        i.putExtra("currentlySendingAudio",false);
+        i.putExtra("currentlySendingAudio", false);
         sendBroadcast(i);
 //        recorder.release();
     }
-
-
-
-
-    public void onStartCommand (Intent intent, int flags, int startId){
-
-//        address = intent.getStringExtra("ip_address");
-
-    }
-
-
 
 
     @Override
@@ -121,7 +83,7 @@ public class Chat extends ActionBarActivity {
     @Override
     protected void onStop() {
 
-        stopService(new Intent(this,ServerHandler.class));
+        stopService(new Intent(this, ServerHandler.class));
     }
 
     @Override

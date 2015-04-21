@@ -11,12 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-
 public class Login extends ActionBarActivity {
 
-    public void onStartCommand (Intent intent, int flags, int startId){
-
-
+    public void onStartCommand(Intent intent, int flags, int startId) {
 
 
     }
@@ -30,8 +27,7 @@ public class Login extends ActionBarActivity {
     }
 
 
-
-    public void launch(View v){
+    public void launch(View v) {
         final Context context = this;
         final Intent i = new Intent(context, ServerHandler.class);
         final EditText server = (EditText) findViewById(R.id.server);
@@ -39,15 +35,10 @@ public class Login extends ActionBarActivity {
         final Intent chatter = new Intent(this, Chat.class);
 
         String address = server.getText().toString();
-        i.putExtra(address,"ip_address");
+        i.putExtra(address, "ip_address");
         startService(i);
-        chatter.putExtra(address,"ip_address");
         startActivity(chatter);
     }
-
-
-
-
 
 
     @Override
@@ -72,11 +63,6 @@ public class Login extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
 
 
 }
