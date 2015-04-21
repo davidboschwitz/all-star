@@ -88,8 +88,8 @@ public class ServerHandler extends Service {
             Toast.makeText(getApplicationContext(), "Error: Incorrect IP; Returning to Login", Toast.LENGTH_LONG);
             startActivity(backpls);
         } catch (java.io.IOException ioe) {
-            Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...", Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), ioe.getMessage(), Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), ioe.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
