@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class Login extends ActionBarActivity {
@@ -35,9 +36,14 @@ public class Login extends ActionBarActivity {
         final Intent chatter = new Intent(this, Chat.class);
 
         String address = server.getText().toString();
-        i.putExtra(address, "ip_address");
-        startService(i);
-        startActivity(chatter);
+        try {
+            i.putExtra(address, "ip_address");
+            startService(i);
+            startActivity(chatter);
+        }
+        catch(Exception e){
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
 
