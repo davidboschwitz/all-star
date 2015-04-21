@@ -89,6 +89,7 @@ public class ServerHandler extends Service {
             startActivity(backpls);
         } catch (java.io.IOException ioe) {
             Toast.makeText(getApplicationContext(), "Error:Could not bind to socket / input / output; \n\nTrying again...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), ioe.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
