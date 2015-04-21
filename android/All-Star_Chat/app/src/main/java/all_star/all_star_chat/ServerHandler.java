@@ -98,6 +98,8 @@ public class ServerHandler extends Service {
          */
     public void getAudio() {
         byte[] buffer = new byte[128000];
+        if(in == null)
+            return;
         try {
             while (true) {
                 in.read(buffer);
