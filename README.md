@@ -19,7 +19,7 @@ Hunter Praska
 
 
 # Install info
-To correctly build and install the program you will need the following programs installed on a command-line/terminal level:
--ant
--java
--git
+To correctly build and install the program you will need the following programs installed on a command-line/terminal level:<br>
+-ant<br>
+-java<br>
+-git<br>
