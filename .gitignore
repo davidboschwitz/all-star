@@ -58,6 +58,3 @@ local.properties
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
 build/
-
-# Private password including files
-include/mysql.inc
